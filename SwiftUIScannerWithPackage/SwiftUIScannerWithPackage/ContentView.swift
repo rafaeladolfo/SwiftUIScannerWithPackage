@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var scannedCode = ""
     @State var scannerIsActive = false
     
+    //Função que interpreta o resultado do package
     func handleScan(result: Result<String, CodeScannerView.ScanError>) {
         self.scannerIsActive = false
         switch result {
@@ -25,11 +26,12 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            //Variável que recebe o código escaneado
             Text(scannedCode)
                 .fontWeight(Font.Weight.semibold)
                 .lineLimit(nil)
             
-            
+            //Botão para iniciar escanemento
             Button(action: {
                 self.scannerIsActive = true
             }) {
